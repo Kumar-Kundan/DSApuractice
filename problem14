@@ -1,0 +1,18 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string comPref="";
+
+        //matching first element's letter to all other element's letter
+        for(int j=0;j<strs[0].size();++j){
+            for(int i=1;i<strs.size();++i)
+
+                //first condition for small words and second for not equal to
+                if(strs[i][j]=='\0' || strs[0][j]!=strs[i][j])
+                   return comPref;
+
+            comPref=comPref+strs[0][j];
+        }
+        return comPref;
+    }
+};
