@@ -1,0 +1,50 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    // bool hasCycle(ListNode *head) {
+    //     if(head==nullptr)
+    //        return false;
+
+    //     ListNode *temp1=head->next,*temp2=head;
+    //     //iterating each element
+    //     while(temp1!=NULL){
+    //         temp2=head;
+    //       //for checking link of all previous elements of temp1
+    //         while(temp2!=temp1){
+    //             if(temp1->next==temp2)
+    //                return true;
+    //             temp2=temp2->next;
+    //         }
+    //         //for checking of self linking
+    //         if(temp1->next==temp2)
+    //             return true;
+    //         temp1=temp1->next;
+    //     }
+    //     return false;
+    // }
+    // time complexity=O(n^2)
+    // space complexity=O(1)
+
+    bool hasCycle(ListNode *head) {
+        ListNode *slow=head,*fast=head;
+        if(head==NULL)
+            return false;
+        //we are taking two pointers first is slow increasing by 
+        //1 and another pointer is fast increasing by 2    
+        while(fast!=NULL && fast->next!=NULL){
+            fast=fast->next->next;
+            slow=slow->next;
+
+            if(slow==fast)
+               return true;
+        }
+        return false;
+    }
+};
