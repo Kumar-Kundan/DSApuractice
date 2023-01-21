@@ -31,7 +31,8 @@ public:
     // }
     // time complexity=O(n^2)
     // space complexity=O(1)
-
+    
+    //Floyd's cylce finding algorithm:-
     bool hasCycle(ListNode *head) {
         ListNode *slow=head,*fast=head;
         if(head==NULL)
@@ -47,4 +48,6 @@ public:
         }
         return false;
     }
+    //time complexity=O(n)
+    //space complexity=O(1)
 };
