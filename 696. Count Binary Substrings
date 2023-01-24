@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int countBinarySubstrings(string s) {
+        int preCount=0,curCount=1,count=0;
+
+        for(int i=1;i<s.size();++i){
+            //when ith element and its previous one are equal then increment
+            // current count
+            if(s[i]==s[i-1])
+                curCount++;
+
+            //when ith element and its previous one are not equal then 
+            //preserve curCount as a preCount and reset curcount
+            else{
+                preCount=curCount;
+                curCount=1;
+            }
+            //until preCount is greater or equal to curCount, increment
+            // count
+            if(preCount>=curCount)
+                count++;
+        }
+        return count;
+    }
+};
