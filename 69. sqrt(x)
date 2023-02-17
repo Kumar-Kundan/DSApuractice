@@ -7,7 +7,7 @@ public:
     //         ++i;
     //     return i-1;
     // }
-    // //time complexity=O(n)
+    // //time complexity=O(root(n))
     // //space complexity=O(1)
 
 
@@ -16,6 +16,8 @@ public:
         long mid;
         int first=0,last=x/4+1;
 
+        //searching on the right of mid if mid's square is less than x
+        //searching on the left of mid if mid's square is greater than x
         while(first<=last){
             mid=(first+last)/2;
             if(mid*mid==x)
@@ -25,7 +27,7 @@ public:
             else 
                 last=mid-1;
         }
-        //when first become greater than last then return last
+        //last gives the lower bound of the target element
         return last;
     }
     //time complexity=O(log n)
